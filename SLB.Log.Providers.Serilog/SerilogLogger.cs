@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Extensions.Configuration;
 using Serilog;
+using Serilog.Core;
 
 namespace SLB.Log.Providers.Serilog
 {
@@ -9,11 +10,15 @@ namespace SLB.Log.Providers.Serilog
     /// </summary>
     public class SerilogLogger: ILogger
     {
+        private static Logger _logger;
+
         public SerilogLogger(IConfiguration configuration)
         {
-            global::Serilog.Log.Logger = new LoggerConfiguration()
+            _logger = new LoggerConfiguration()
                 .ReadFrom.Configuration(configuration)
                 .CreateLogger();
+
+            global::Serilog.Log.Logger = _logger;
         }
 
         public void Dispose()
@@ -23,142 +28,142 @@ namespace SLB.Log.Providers.Serilog
 
         public void Write(LogLevel level, string message)
         {
-            global::Serilog.Log.Write(level.ToLogEventLevel(), message);
+            _logger.Write(level.ToLogEventLevel(), message);
         }
 
         public void Write(LogLevel level, string message, params object[] propertyValues)
         {
-            global::Serilog.Log.Write(level.ToLogEventLevel(), message, propertyValues);
+            _logger.Write(level.ToLogEventLevel(), message, propertyValues);
         }
 
         public void Write(LogLevel level, string message, Exception exception)
         {
-            global::Serilog.Log.Write(level.ToLogEventLevel(), exception, message);
+            _logger.Write(level.ToLogEventLevel(), exception, message);
         }
 
         public void Write(LogLevel level, string message, Exception exception, params object[] propertyValues)
         {
-            global::Serilog.Log.Write(level.ToLogEventLevel(), exception, message, propertyValues);
+            _logger.Write(level.ToLogEventLevel(), exception, message, propertyValues);
         }
 
         public void Verbose(string message)
         {
-            global::Serilog.Log.Verbose(message);
+            _logger.Verbose(message);
         }
 
         public void Verbose(string message, params object[] propertyValues)
         {
-            global::Serilog.Log.Verbose(message, propertyValues);
+            _logger.Verbose(message, propertyValues);
         }
 
         public void Verbose(string message, Exception exception)
         {
-            global::Serilog.Log.Verbose(exception, message);
+            _logger.Verbose(exception, message);
         }
 
         public void Verbose(string message, Exception exception, params object[] propertyValues)
         {
-            global::Serilog.Log.Verbose(exception, message, propertyValues);
+            _logger.Verbose(exception, message, propertyValues);
         }
 
         public void Debug(string message)
         {
-            global::Serilog.Log.Debug(message);
+            _logger.Debug(message);
         }
 
         public void Debug(string message, params object[] propertyValues)
         {
-            global::Serilog.Log.Debug(message, propertyValues);
+            _logger.Debug(message, propertyValues);
         }
 
         public void Debug(string message, Exception exception)
         {
-            global::Serilog.Log.Debug(exception, message);
+            _logger.Debug(exception, message);
         }
 
         public void Debug(string message, Exception exception, params object[] propertyValues)
         {
-            global::Serilog.Log.Debug(exception, message, propertyValues);
+            _logger.Debug(exception, message, propertyValues);
         }
 
         public void Information(string message)
         {
-            global::Serilog.Log.Information(message);
+            _logger.Information(message);
         }
 
         public void Information(string message, params object[] propertyValues)
         {
-            global::Serilog.Log.Information(message, propertyValues);
+            _logger.Information(message, propertyValues);
         }
 
         public void Information(string message, Exception exception)
         {
-            global::Serilog.Log.Information(exception, message);
+            _logger.Information(exception, message);
         }
 
         public void Information(string message, Exception exception, params object[] propertyValues)
         {
-            global::Serilog.Log.Information(exception, message, propertyValues);
+            _logger.Information(exception, message, propertyValues);
         }
 
         public void Warning(string message)
         {
-            global::Serilog.Log.Warning(message);
+            _logger.Warning(message);
         }
 
         public void Warning(string message, params object[] propertyValues)
         {
-            global::Serilog.Log.Warning(message, propertyValues);
+            _logger.Warning(message, propertyValues);
         }
 
         public void Warning(string message, Exception exception)
         {
-            global::Serilog.Log.Warning(exception, message);
+            _logger.Warning(exception, message);
         }
 
         public void Warning(string message, Exception exception, params object[] propertyValues)
         {
-            global::Serilog.Log.Warning(exception, message, propertyValues);
+            _logger.Warning(exception, message, propertyValues);
         }
 
         public void Error(string message)
         {
-            global::Serilog.Log.Error(message);
+            _logger.Error(message);
         }
 
         public void Error(string message, params object[] propertyValues)
         {
-            global::Serilog.Log.Error(message, propertyValues);
+            _logger.Error(message, propertyValues);
         }
 
         public void Error(string message, Exception exception)
         {
-            global::Serilog.Log.Error(exception, message);
+            _logger.Error(exception, message);
         }
 
         public void Error(string message, Exception exception, params object[] propertyValues)
         {
-            global::Serilog.Log.Error(exception, message, propertyValues);
+            _logger.Error(exception, message, propertyValues);
         }
 
         public void Fatal(string message)
         {
-            global::Serilog.Log.Fatal(message);
+            _logger.Fatal(message);
         }
 
         public void Fatal(string message, params object[] propertyValues)
         {
-            global::Serilog.Log.Fatal(message, propertyValues);
+            _logger.Fatal(message, propertyValues);
         }
 
         public void Fatal(string message, Exception exception)
         {
-            global::Serilog.Log.Fatal(exception, message);
+            _logger.Fatal(exception, message);
         }
 
         public void Fatal(string message, Exception exception, params object[] propertyValues)
         {
-            global::Serilog.Log.Fatal(exception, message, propertyValues);
+            _logger.Fatal(exception, message, propertyValues);
         }
     }
 }

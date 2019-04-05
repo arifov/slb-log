@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Extensions.Configuration;
 using SLB.Log;
+using SLB.Log.Providers.Serilog;
 
 namespace ConsoleUI
 {
@@ -26,7 +27,7 @@ namespace ConsoleUI
                 .AddJsonFile("appsettings.json")
                 .Build();
 
-            using (ILogManager logger = new LogManager(configuration))
+            using (ILogger logger = new SerilogLogger(configuration))
             {
                 //Simple log entry
                 logger.Debug("Hello World!");

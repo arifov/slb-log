@@ -1,7 +1,7 @@
 ﻿using System;
 using Serilog.Events;
 
-namespace SLB.Log
+namespace SLB.Log.Providers.Serilog
 {
     /// <summary>
     /// Log level converter helper class

@@ -8,9 +8,9 @@ namespace WebApp.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        private readonly ILogManager _logger;
+        private readonly ILogger _logger;
 
-        public ValuesController(ILogManager logger)
+        public ValuesController(ILogger logger)
         {
             _logger = logger;
         }

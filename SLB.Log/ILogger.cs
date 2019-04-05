@@ -6,7 +6,7 @@ namespace SLB.Log
     /// General logger interface.
     /// Mandatory for futher DI, mocking and other log providers implementation (will make migration to let's say NLog easier).
     /// </summary>
-    public interface ILogManager: IDisposable
+    public interface ILogger: IDisposable
     {
         void Write(LogLevel level, string message);
         void Write(LogLevel level, string message, params object[] propertyValues);

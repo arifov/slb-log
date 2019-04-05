@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SLB.Log.Providers.Serilog\SLB.Log.Providers.Serilog.csproj" />
     <ProjectReference Include="..\SLB.Log\SLB.Log.csproj" />
   </ItemGroup>
 

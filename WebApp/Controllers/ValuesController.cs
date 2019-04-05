@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using SLB.Log;
 
 namespace WebApp.Controllers
 {
@@ -10,6 +8,13 @@ namespace WebApp.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly ILogManager _logger;
+
+        public ValuesController(ILogManager logger)
+        {
+            _logger = logger;
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
@@ -21,6 +26,9 @@ namespace WebApp.Controllers
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
+            _logger.Information("API method api/values/ is called with id equal to {Id}", id);
+            _logger.Fatal("Some shit happened. Set config \"MinimumLevel\": \"Error\" to see this log entry only");
+
             return "Hello World!";
         }
 

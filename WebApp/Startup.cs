@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SLB.Log.Providers.NLog;
 using SLB.Log.Providers.Serilog;
 
 namespace WebApp
@@ -19,7 +20,9 @@ namespace WebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSerilog();
+            //Now we can switch between 2 log providers. No other change (except config file attaching) is required. 
+            services.AddNLog();
+            //services.AddSerilog();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLB.Log.Providers.Serilog", "SLB.Log.Providers.Serilog\SLB.Log.Providers.Serilog.csproj", "{D96FF734-0D67-4E49-87B9-2BA34DBEB696}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SLB.Log.Providers.NLog", "SLB.Log.Providers.NLog\SLB.Log.Providers.NLog.csproj", "{5EDF175D-D676-4306-AAFD-01D36BCAC0DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D96FF734-0D67-4E49-87B9-2BA34DBEB696}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D96FF734-0D67-4E49-87B9-2BA34DBEB696}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D96FF734-0D67-4E49-87B9-2BA34DBEB696}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EDF175D-D676-4306-AAFD-01D36BCAC0DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EDF175D-D676-4306-AAFD-01D36BCAC0DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EDF175D-D676-4306-AAFD-01D36BCAC0DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EDF175D-D676-4306-AAFD-01D36BCAC0DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
